@@ -55,7 +55,7 @@ class MemcachedStats < Sensu::Plugin::Check::CLI
     end
   rescue Timeout::Error
     warning "timed out connecting to memcached on port #{config[:port]}"
-  rescue
+  rescue StandardError
     critical "Can't connect to port #{config[:port]}"
   else
     ok 'memcached stats protocol responded in a timely fashion'
