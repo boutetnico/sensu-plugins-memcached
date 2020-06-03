@@ -78,7 +78,7 @@ class MemcachedKeyStatsGraphite < Sensu::Plugin::Metric::CLI::Graphite
     ok
   rescue Timeout::Error
     puts "timed out gettings stats from memcached on port #{config[:port]}"
-  rescue
+  rescue StandardError
     puts "Can't connect to port #{config[:port]}"
     exit(1)
   end

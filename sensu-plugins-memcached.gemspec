@@ -5,7 +5,7 @@ require 'date'
 
 require_relative 'lib/sensu-plugins-memcached'
 
-Gem::Specification.new do |s|
+Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
   s.authors                = ['Sensu Plugins and contributors']
   s.date                   = Date.today.to_s
   s.description            = 'This plugin provides native memcached instrumentation
@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
                               stats service health and metrics via `stats` protocol'
   s.email                  = '<sensu-users@googlegroups.com>'
   s.executables            = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
-  s.files                  = Dir.glob('{bin,lib}/**/*') + %w(LICENSE README.md CHANGELOG.md)
+  s.files                  = Dir.glob('{bin,lib}/**/*') + %w[LICENSE README.md CHANGELOG.md]
   s.homepage               = 'https://github.com/boutetnico/sensu-plugins-memcached'
   s.license                = 'MIT'
   s.metadata               = { 'maintainer'         => 'sensu-plugin',
@@ -31,8 +31,8 @@ Gem::Specification.new do |s|
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsMemcached::Version::VER_STRING
 
-  s.add_runtime_dependency 'sensu-plugin', '~> 4.0'
   s.add_runtime_dependency 'dalli',        '~> 2.7'
+  s.add_runtime_dependency 'sensu-plugin', '~> 4.0'
 
   s.add_development_dependency 'bundler',                   '~> 2.1'
   s.add_development_dependency 'codeclimate-test-reporter', '~> 1.0'
@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry',                       '~> 0.10'
   s.add_development_dependency 'rake',                      '~> 12.3'
   s.add_development_dependency 'redcarpet',                 '~> 3.2'
-  s.add_development_dependency 'rubocop',                   '~> 0.51.0'
   s.add_development_dependency 'rspec',                     '~> 3.4'
+  s.add_development_dependency 'rubocop',                   '~> 0.51.0'
   s.add_development_dependency 'yard',                      '~> 0.9.11'
 end
